@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas Ferreira - Palestra ao Vivo em Cuiabá</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0f0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 15, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            display: block;
+            color: #4CAF50;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+
+        .btn-header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-header:hover {
+            background: #45a049;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            margin-top: 70px;
+            position: relative;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: url('hero-bg.png') center center / cover no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(5,10,5,0.85) 0%, rgba(5,10,5,0.6) 40%, rgba(5,10,5,0.15) 70%, rgba(5,10,5,0) 100%);
+            z-index: 1;
+        }
+
+        .hero-overlay-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to top, #0a0f0a, transparent);
+            z-index: 1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            min-height: 650px;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 60px 0 80px 0;
+            max-width: 600px;
+        }
+
+        .hero-subtitle-top {
+            color: #4CAF50;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 0.95;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-focus {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero-focus span {
+            color: #4CAF50;
+        }
+
+        .hero-description {
+            font-size: 13px;
+            font-weight: 500;
+            color: #ccc;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-people-icon {
+            position: absolute;
+            top: 80px;
+            right: 0;
+        }
+
+        .hero-people-icon i {
+            font-size: 48px;
+            color: rgba(255,255,255,0.15);
+        }
+
+        /* Hero Features */
+        .hero-features {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 10px 18px;
+        }
+
+        .hero-feature-icon {
+            width: 32px;
+            height: 32px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .hero-feature-text {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        /* ========== EVENT INFO BAR ========== */
+        .event-info {
+            background: #111a11;
+            border-top: 1px solid rgba(76, 175, 80, 0.2);
+            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+            padding: 30px 0;
+        }
+
+        .event-info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .event-info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .event-info-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+
+        .event-info-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .event-info-value {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .event-info-sub {
+            font-size: 10px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== PRICING SECTION ========== */
+        .pricing {
+            padding: 80px 0 40px;
+            background: linear-gradient(180deg, #0a0f0a 0%, #0d150d 100%);
+        }
+
+        .pricing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #888;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .pricing-cards {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            flex: 1;
+            max-width: 300px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            background: rgba(255,255,255,0.02);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            padding: 6px 20px;
+            border-radius: 0 0 8px 8px;
+            text-transform: uppercase;
+        }
+
+        .pricing-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .pricing-tier {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card.featured .pricing-tier {
+            color: #4CAF50;
+        }
+
+        .pricing-desc {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            min-height: 60px;
+        }
+
+        .pricing-divider {
+            width: 100%;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 25px;
+        }
+
+        .pricing-price {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 25px;
+        }
+
+        .pricing-price span {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .btn-buy {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-buy:hover {
+            background: #fff;
+            color: #0a0f0a;
+        }
+
+        .pricing-card.featured .btn-buy {
+            background: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .pricing-card.featured .btn-buy:hover {
+            background: #45a049;
+            border-color: #45a049;
+        }
+
+        /* ========== TRUST BAR ========== */
+        .trust-bar {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .trust-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trust-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(200, 170, 50, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c8aa32;
+            font-size: 16px;
+        }
+
+        .trust-text-title {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .trust-text-sub {
+            font-size: 9px;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            padding: 80px 0;
+            background: #0d120d;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-title {
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .about-description {
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .btn-about {
+            display: inline-block;
+            padding: 14px 28px;
+            border: 2px solid #fff;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .btn-about:hover {
+            background: #fff;
+            color: #0a0f0a;
+        }
+
+        .about-media {
+            flex: 0 0 350px;
+            position: relative;
+        }
+
+        .about-video {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1a2a1a, #0d1a0d);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(76, 175, 80, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 2;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button i {
+            font-size: 22px;
+            margin-left: 3px;
+        }
+
+        .about-stats {
+            flex: 0 0 180px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .about-stat {
+            background: rgba(76, 175, 80, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .about-stat-number {
+            font-size: 22px;
+            font-weight: 900;
+            color: #4CAF50;
+        }
+
+        .about-stat-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        .about-stat-highlight {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #c8aa32;
+            line-height: 1.4;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            padding: 80px 0;
+            background: #0a0f0a;
+        }
+
+        .testimonials-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .testimonials-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .testimonials-cards {
+            display: flex;
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2a3a2a, #1a2a1a);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+
+        .testimonial-quote {
+            font-size: 13px;
+            color: #bbb;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            color: #4CAF50;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .testimonial-quote::after {
+            content: '"';
+            color: #4CAF50;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .testimonial-name {
+            font-size: 14px;
+            font-weight: 800;
+            color: #4CAF50;
+        }
+
+        .testimonial-role {
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* ========== FAQ ========== */
+        .faq {
+            padding: 80px 0;
+            background: #0d120d;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.02);
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .faq-question span {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .faq-question .faq-toggle {
+            width: 24px;
+            height: 24px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #888;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-answer-content {
+            padding: 0 20px 18px;
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: #fff;
+            transform: rotate(45deg);
+        }
+
+        /* ========== CTA FOOTER ========== */
+        .cta-footer {
+            padding: 40px 0;
+            background: linear-gradient(90deg, #0d1a0d 0%, #1a2a1a 50%, #0d1a0d 100%);
+            border-top: 2px solid #4CAF50;
+        }
+
+        .cta-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cta-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(76, 175, 80, 0.15);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .cta-subtitle {
+            font-size: 12px;
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cta-right {
+            text-align: center;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: #4CAF50;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-cta:hover {
+            background: #45a049;
+        }
+
+        .cta-limited {
+            font-size: 11px;
+            font-weight: 700;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 30px 0;
+            background: #050805;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer p {
+            font-size: 11px;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        /* ========== RESPONSIVE TABLET ========== */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .btn-header {
+                padding: 10px 16px;
+                font-size: 10px;
+            }
+
+            .hero {
+                min-height: 500px;
+                background-position: 30% center;
+            }
+
+            .hero-container {
+                min-height: 500px;
+                align-items: center;
+            }
+
+            .hero-content {
+                padding: 30px 0 50px;
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .hero-features {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .event-info-container {
+                flex-wrap: wrap;
+                gap: 25px;
+                justify-content: center;
+            }
+
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pricing-card {
+                max-width: 400px;
+                width: 100%;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-media {
+                flex: none;
+                width: 100%;
+            }
+
+            .about-stats {
+                flex: none;
+                flex-direction: row;
+                width: 100%;
+            }
+
+            .about-stat {
+                flex: 1;
+            }
+
+            .testimonials-cards {
+                flex-direction: column;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-container {
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .trust-item {
+                flex: 0 0 calc(50% - 15px);
+            }
+
+            .cta-container {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .cta-left {
+                flex-direction: column;
+            }
+        }
+
+        /* ========== RESPONSIVE MOBILE ========== */
+        @media (max-width: 600px) {
+            /* HEADER MOBILE */
+            .header-container {
+                height: 60px;
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 14px;
+            }
+
+            .btn-header {
+                padding: 8px 12px;
+                font-size: 9px;
+                letter-spacing: 0.5px;
+            }
+
+            .menu-toggle {
+                font-size: 20px;
+            }
+
+            .nav-mobile {
+                top: 60px;
+            }
+
+            /* HERO MOBILE */
+            .hero {
+                margin-top: 60px;
+                min-height: 520px;
+                background-position: 35% center;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(180deg, rgba(5,10,5,0.7) 0%, rgba(5,10,5,0.5) 40%, rgba(5,10,5,0.3) 70%, rgba(5,10,5,0.7) 100%);
+            }
+
+            .hero-container {
+                min-height: 520px;
+                padding: 0 15px;
+                align-items: center;
+            }
+
+            .hero-content {
+                padding: 20px 0 30px;
+                text-align: center;
+            }
+
+            .hero-subtitle-top {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+                margin-bottom: 8px;
+            }
+
+            .hero-title {
+                font-size: 42px;
+                margin-bottom: 12px;
+            }
+
+            .hero-focus {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .hero-description {
+                font-size: 10px;
+                letter-spacing: 1px;
+                margin-bottom: 20px;
+            }
+
+            .hero-features {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-feature {
+                padding: 8px 14px;
+                gap: 8px;
+            }
+
+            .hero-feature-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
+
+            .hero-feature-text {
+                font-size: 8px;
+                letter-spacing: 0.5px;
+            }
+
+            /* EVENT INFO MOBILE */
+            .event-info {
+                padding: 20px 0;
+            }
+
+            .event-info-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 0 15px;
+            }
+
+            .event-info-item {
+                gap: 10px;
+            }
+
+            .event-info-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .event-info-label {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+
+            .event-info-value {
+                font-size: 13px;
+            }
+
+            .event-info-sub {
+                font-size: 8px;
+            }
+
+            /* PRICING MOBILE */
+            .pricing {
+                padding: 50px 0 30px;
+            }
+
+            .pricing-container {
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .section-subtitle {
+                font-size: 11px;
+                margin-bottom: 25px;
+            }
+
+            .pricing-cards {
+                gap: 20px;
+            }
+
+            .pricing-card {
+                padding: 30px 20px;
+                max-width: 100%;
+            }
+
+            .pricing-tier {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .pricing-desc {
+                font-size: 12px;
+                margin-bottom: 20px;
+                min-height: auto;
+            }
+
+            .pricing-price {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+            .btn-buy {
+                padding: 12px;
+                font-size: 12px;
+            }
+
+            /* TRUST BAR MOBILE */
+            .trust-bar {
+                padding: 25px 0;
+            }
+
+            .trust-container {
+                flex-direction: column;
+                gap: 18px;
+                padding: 0 15px;
+            }
+
+            .trust-item {
+                flex: none;
+                width: 100%;
+            }
+
+            .trust-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .trust-text-title {
+                font-size: 11px;
+            }
+
+            .trust-text-sub {
+                font-size: 9px;
+            }
+
+            /* ABOUT MOBILE */
+            .about {
+                padding: 50px 0;
+            }
+
+            .about-container {
+                padding: 0 15px;
+                gap: 25px;
+            }
+
+            .about-title {
+                font-size: 22px;
+            }
+
+            .about-description {
+                font-size: 13px;
+            }
+
+            .btn-about {
+                padding: 12px 24px;
+                font-size: 11px;
+            }
+
+            .about-media {
+                flex: none;
+                width: 100%;
+            }
+
+            .about-video {
+                height: 180px;
+            }
+
+            .about-stats {
+                flex: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .about-stat {
+                padding: 12px;
+            }
+
+            .about-stat-number {
+                font-size: 18px;
+            }
+
+            /* TESTIMONIALS MOBILE */
+            .testimonials {
+                padding: 50px 0;
+            }
+
+            .testimonials-container {
+                padding: 0 15px;
+            }
+
+            .testimonials-title {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+
+            .testimonials-cards {
+                gap: 15px;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .testimonial-quote {
+                font-size: 12px;
+            }
+
+            .testimonial-name {
+                font-size: 13px;
+            }
+
+            /* FAQ MOBILE */
+            .faq {
+                padding: 50px 0;
+            }
+
+            .faq-container {
+                padding: 0 15px;
+            }
+
+            .faq-title {
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .faq-question {
+                padding: 14px 15px;
+            }
+
+            .faq-question span {
+                font-size: 12px;
+            }
+
+            .faq-answer-content {
+                padding: 0 15px 14px;
+                font-size: 12px;
+            }
+
+            /* CTA FOOTER MOBILE */
+            .cta-footer {
+                padding: 30px 0;
+            }
+
+            .cta-container {
+                padding: 0 15px;
+            }
+
+            .cta-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .cta-title {
+                font-size: 20px;
+            }
+
+            .cta-subtitle {
+                font-size: 10px;
+                letter-spacing: 1px;
+            }
+
+            .btn-cta {
+                padding: 14px 30px;
+                font-size: 12px;
+                letter-spacing: 1px;
+                width: 100%;
+            }
+
+            .cta-limited {
+                font-size: 10px;
+            }
+
+            /* FOOTER MOBILE */
+            .footer {
+                padding: 20px 0;
+            }
+
+            .footer p {
+                font-size: 10px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Green glow effect on featured card */
+        .pricing-card.featured {
+            box-shadow: 0 0 40px rgba(76, 175, 80, 0.1);
+        }
+
+        /* Mobile menu */
+        .nav-mobile {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 10, 0.98);
+            padding: 20px;
+            z-index: 999;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .nav-mobile.active {
+            display: block;
+        }
+
+        .nav-mobile a {
+            display: block;
+            padding: 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ccc;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-mobile a:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                NICOLAS<span>FERREIRA</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">INÍCIO</a></li>
+                    <li><a href="#sobre-palestra">SOBRE A PALESTRA</a></li>
+                    <li><a href="#para-quem">PARA QUEM É</a></li>
+                    <li><a href="#depoimentos">DEPOIMENTOS</a></li>
+                    <li><a href="#perguntas">PERGUNTAS</a></li>
+                    <li><a href="#local">LOCAL</a></li>
+                </ul>
+            </nav>
+            <a href="#ingressos" class="btn-header">GARANTIR MEU INGRESSO</a>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="nav-mobile" id="navMobile">
+        <a href="#inicio" onclick="toggleMenu()">INÍCIO</a>
+        <a href="#sobre-palestra" onclick="toggleMenu()">SOBRE A PALESTRA</a>
+        <a href="#para-quem" onclick="toggleMenu()">PARA QUEM É</a>
+        <a href="#depoimentos" onclick="toggleMenu()">DEPOIMENTOS</a>
+        <a href="#perguntas" onclick="toggleMenu()">PERGUNTAS</a>
+        <a href="#local" onclick="toggleMenu()">LOCAL</a>
+        <a href="#ingressos" onclick="toggleMenu()" style="color: #4CAF50;">GARANTIR MEU INGRESSO</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-overlay-bottom"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-subtitle-top">PALESTRA AO VIVO EM CUIABÁ</p>
+                <h1 class="hero-title">NICOLAS<br>FERREIRA</h1>
+                <p class="hero-focus">FOCO EM EMPRESÁRIOS<br><span>E AGRICULTORES</span></p>
+                <p class="hero-description">LIBERDADE, PRODUTIVIDADE E PROSPERIDADE PARA<br>QUEM CONSTRÓI O BRASIL.</p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="hero-feature-text">ESTRATÉGIAS<br>PARA CRESCER</div>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="hero-feature-text">MENOS BUROCRACIA<br>MAIS RESULTADOS</div>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <div class="hero-feature-text">AGRO FORTE<br>BRASIL FORTE</div>
+                    </div>
+                    <div class="hero-feature">
+                        <div class="hero-feature-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="hero-feature-text">PROPÓSITO<br>E LIBERDADE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENT INFO BAR -->
+    <section class="event-info" id="sobre-palestra">
+        <div class="event-info-container">
+            <div class="event-info-item">
+                <div class="event-info-icon">
+                    <i class="far fa-calendar-alt"></i>
+                </div>
+                <div>
+                    <div class="event-info-label">DATA</div>
+                    <div class="event-info-value">EM BREVE</div>
+                    <div class="event-info-sub">A SER DIVULGADA</div>
+                </div>
+            </div>
+            <div class="event-info-item">
+                <div class="event-info-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div>
+                    <div class="event-info-label">HORÁRIO</div>
+                    <div class="event-info-value">19H30</div>
+                    <div class="event-info-sub">ABERTURA: 18H00</div>
+                </div>
+            </div>
+            <div class="event-info-item">
+                <div class="event-info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                    <div class="event-info-label">LOCAL</div>
+                    <div class="event-info-value">CUIABÁ – MT</div>
+                    <div class="event-info-sub">LOCAL EM BREVE</div>
+                </div>
+            </div>
+            <div class="event-info-item">
+                <div class="event-info-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div>
+                    <div class="event-info-label">PÚBLICO</div>
+                    <div class="event-info-value">EMPRESÁRIOS E</div>
+                    <div class="event-info-sub">AGRICULTORES</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="ingressos">
+        <div class="pricing-container">
+            <h2 class="section-title">GARANTA SEU INGRESSO</h2>
+            <p class="section-subtitle">VAGAS LIMITADAS</p>
+            <div class="pricing-cards">
+                <!-- PREMIUM -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">MAIS ESCOLHIDO</div>
+                    <div class="pricing-label">INGRESSO</div>
+                    <div class="pricing-tier">PREMIUM</div>
+                    <p class="pricing-desc">Acesso à palestra, conteúdo<br>exclusivo e área preferencial.</p>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-price"><span>R$ </span>3.500,00</div>
+                    <button class="btn-buy">COMPRAR AGORA</button>
+                </div>
+                <!-- VIP -->
+                <div class="pricing-card">
+                    <div class="pricing-label">INGRESSO</div>
+                    <div class="pricing-tier">VIP</div>
+                    <p class="pricing-desc">Acesso à palestra, conteúdo exclusivo, área VIP, fila preferencial, <strong>jantar exclusivo</strong> e <strong>encontro pessoal com Nicolas Ferreira.</strong></p>
+                    <div class="pricing-divider"></div>
+                    <div class="pricing-price"><span><s>R$ 6.700,00</s></span></div>
+                    <div class="pricing-price" style="color: #4CAF50;"><span>R$ </span>5.300,00</div>
+                    <button class="btn-buy">COMPRAR AGORA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+        <div class="trust-container">
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <div class="trust-text-title">COMPRA 100% SEGURA</div>
+                    <div class="trust-text-sub">Ambiente criptografado</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div>
+                    <div class="trust-text-title">PARCELE EM ATÉ 12X</div>
+                    <div class="trust-text-sub">No cartão de crédito</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                    <div class="trust-text-title">INGRESSO DIGITAL</div>
+                    <div class="trust-text-sub">Receba no seu e-mail</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <div>
+                    <div class="trust-text-title">CANCELAMENTO GARANTIDO</div>
+                    <div class="trust-text-sub">7 dias de garantia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="para-quem">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 class="about-title">SOBRE NICOLAS FERREIRA</h2>
+                <p class="about-description">
+                    Nicolas Ferreira é deputado federal, empresário e uma das principais vozes do Brasil quando o assunto é liberdade econômica, produtividade e desenvolvimento do país. Sua missão é inspirar e equipar pessoas para construírem um Brasil mais livre, próspero e sustentável.
+                </p>
+                <a href="#" class="btn-about">SAIBA MAIS SOBRE ELE</a>
+            </div>
+            <div class="about-media">
+                <div class="about-video" id="videoContainer" onclick="playVideo()">
+                    <div class="play-button" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <img src="https://img.youtube.com/vi/3JPyYn5evjk/maxresdefault.jpg" alt="Vídeo Nicolas Ferreira" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <div class="about-stat-number">+22 MILHÕES</div>
+                    <div class="about-stat-label">DE SEGUIDORES</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">+300 MILHÕES</div>
+                    <div class="about-stat-label">DE VISUALIZAÇÕES</div>
+                </div>
+                <div class="about-stat" style="border-color: rgba(200, 170, 50, 0.3); background: rgba(200, 170, 50, 0.05);">
+                    <div class="about-stat-highlight">UM DOS MAIORES<br>INFLUENCIADORES<br>DO BRASIL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="depoimentos">
+        <div class="testimonials-container">
+            <h2 class="testimonials-title">QUEM JÁ ASSISTIU, RECOMENDA</h2>
+            <div class="testimonials-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">Uma palestra que muda a forma de pensar e agir. Saí com a mente inquieta e pronta para crescer!</p>
+                    <div class="testimonial-name">Carlos M.</div>
+                    <div class="testimonial-role">Empresário</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">Conteúdo direto, didático e com exemplos práticos para quem quer resultados de verdade.</p>
+                    <div class="testimonial-name">Juliana R.</div>
+                    <div class="testimonial-role">Produtora Rural</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">Nicolas fala a nossa língua. Motivação e estratégia na medida certa!</p>
+                    <div class="testimonial-name">Rogério A.</div>
+                    <div class="testimonial-role">Empresário do Agro</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="perguntas">
+        <div class="faq-container">
+            <h2 class="faq-title">PERGUNTAS FREQUENTES</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Como recebo meu ingresso?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Após a confirmação do pagamento, você receberá o ingresso digital diretamente no seu e-mail cadastrado.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>O ingresso é individual?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim, cada ingresso é individual e intransferível.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Posso cancelar minha compra?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim, você tem até 7 dias após a compra para solicitar o cancelamento e reembolso integral.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Crianças podem participar?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            O evento é voltado para o público adulto, especialmente empresários e agricultores.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Terá certificado de participação?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sim, todos os participantes receberão um certificado digital de participação após o evento.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>O local possui estacionamento?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            As informações sobre o local e estacionamento serão divulgadas em breve.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FOOTER -->
+    <section class="cta-footer" id="local">
+        <div class="cta-container">
+            <div class="cta-left">
+                <div class="cta-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                    <div class="cta-title">CUIABÁ TE ESPERA!</div>
+                    <div class="cta-subtitle">UM ENCONTRO PARA QUEM FAZ A DIFERENÇA.</div>
+                </div>
+            </div>
+            <div class="cta-right">
+                <a href="#ingressos" class="btn-cta">QUERO GARANTIR MEU INGRESSO</a>
+                <div class="cta-limited">VAGAS LIMITADAS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 Nicolas Ferreira. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function playVideo() {
+            const container = document.getElementById('videoContainer');
+            container.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/3JPyYn5evjk?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:12px;"></iframe>';
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('navMobile');
+            nav.classList.toggle('active');
+        }
+
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.5)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
